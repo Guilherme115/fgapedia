@@ -1,0 +1,49 @@
+name: Processar Nova Prova
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  process-exam:
+    if: contains(github.event.issue.labels.*.name, 'nova-prova')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Ghostscript
+        run: sudo apt-get update && sudo apt-get install -y ghostscript
+
+      - name: Process Issue Data
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: node scripts/process-issue.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add public/data/exams.json public/exams/
+          git commit -m "feat(data): add exam from issue #${{ github.event.issue.number }}" || echo "No changes to commit"
+          git push
+
+      - name: Close Issue
+        uses: peter-evans/close-issue@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment: "A sua prova foi processada com sucesso, comprimida e adicionada ao repositório! Muito obrigado pela contribuição. :tada:"
