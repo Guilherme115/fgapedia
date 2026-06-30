@@ -37,6 +37,22 @@ body:
       required: true
 
   - type: dropdown
+    id: exam_type
+    attributes:
+      label: Tipo de Avaliação
+      description: Selecione qual foi o tipo desta prova.
+      options:
+        - "P1 (Primeira Prova)"
+        - "P2 (Segunda Prova)"
+        - "P3 (Terceira Prova)"
+        - "Exame Especial (Substitutiva)"
+        - "Teste / Quiz"
+        - "Trabalho / Projeto"
+        - "Outros"
+    validations:
+      required: true
+
+  - type: dropdown
     id: difficulty
     attributes:
       label: Dificuldade
@@ -49,6 +65,24 @@ body:
         - "5"
     validations:
       required: true
+
+  - type: checkboxes
+    id: has_answer_key
+    attributes:
+      label: Gabarito e Resolução
+      description: Essa prova possui as respostas?
+      options:
+        - label: Sim, o arquivo contém o gabarito ou a resolução da prova.
+          required: false
+
+  - type: textarea
+    id: tips
+    attributes:
+      label: Dica de Ouro (Opcional)
+      description: Tem alguma dica sobre essa prova ou sobre a matéria desse professor? Compartilhe com os colegas!
+      placeholder: Ex: O professor tirou 80% dessa prova da Lista 3...
+    validations:
+      required: false
 
   - type: textarea
     id: pdf_attachment

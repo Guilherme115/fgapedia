@@ -129,11 +129,16 @@ async function run() {
     const professor = extractField(ISSUE_BODY, 'Professor\\(a\\)');
     const subject = extractField(ISSUE_BODY, 'Matéria');
     const semester = extractField(ISSUE_BODY, 'Semestre');
+    const examType = extractField(ISSUE_BODY, 'Tipo de Avaliação');
     const difficultyStr = extractField(ISSUE_BODY, 'Dificuldade');
+    const hasAnswerKeyStr = extractField(ISSUE_BODY, 'Gabarito e Resolução');
+    const tips = extractField(ISSUE_BODY, 'Dica de Ouro \\(Opcional\\)');
     const pdfUrl = extractPdfUrl(ISSUE_BODY);
 
-    if (!professor || !subject || !semester || !pdfUrl) {
-      throw new Error('Formulário incompleto. Certifique-se de preencher todos os campos e anexar o PDF.');
+    const hasAnswerKey = hasAnswerKeyStr.toLowerCase().includes('[x]');
+
+    if (!professor || !subject || !semester || !examType || !pdfUrl) {
+      throw new Error('Formulário incompleto. Certifique-se de preencher todos os campos obrigatórios e anexar o PDF.');
     }
 
     // Validação de formato do semestre (ex: 2023.1)
@@ -194,7 +199,10 @@ async function run() {
       subject,
       professor,
       semester,
+      examType,
       difficulty: parseInt(difficultyStr, 10) || 3,
+      hasAnswerKey,
+      tips: tips === '_No response_' ? '' : tips, // Github defaults empty optionals to _No response_
       pdfUrl: `/exams/${fileName}`,
       dateAdded: new Date().toISOString(),
       contributor: process.env.ISSUE_AUTHOR || 'Anônimo'
