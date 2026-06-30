@@ -9,12 +9,17 @@ body:
         Obrigado por contribuir para a **FGApédia**!
         Preencha os dados abaixo com atenção e anexe o PDF da prova.
 
-  - type: input
+  - type: dropdown
     id: professor
     attributes:
       label: Professor(a)
-      description: Nome do professor que aplicou a prova.
-      placeholder: Ex: João Silva
+      description: Selecione o nome do professor que aplicou a prova.
+      options:
+        - "Professor(a) Leandro Xavier Cardoso"
+        - "Professor(a) André Barros de Sales"
+        - "Professor(a) Exemplo 1"
+        - "Professor(a) Exemplo 2"
+        - "Outro (Especifique na Dica)"
     validations:
       required: true
 
