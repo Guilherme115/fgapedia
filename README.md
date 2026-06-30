@@ -28,7 +28,7 @@ Todo o conteúdo deste repositório é enviado colaborativamente pelos próprios
 Em conformidade com a **Lei de Direitos Autorais Brasileira (Lei nº 9.610/1998)**, nós respeitamos a propriedade intelectual dos professores e criadores de conteúdo. 
 
 **Se você é professor(a) ou autor(a) de algum dos PDFs inseridos aqui e não deseja que seu material seja compartilhado**, por favor, solicite a retirada do material enviando um email para:
-📩 **[INSERIR EMAIL DE CONTATO AQUI]**
+📩 **AINDA SEM EMAIL**
 
 Assim que recebermos a solicitação, o documento será **excluído o mais breve possível** do nosso banco de dados e repositório.
 
