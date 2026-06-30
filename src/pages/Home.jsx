@@ -9,7 +9,7 @@ export default function Home() {
   const [filterGabarito, setFilterGabarito] = useState(false);
 
   useEffect(() => {
-    fetch('/data/exams.json')
+    fetch(`${import.meta.env.BASE_URL}data/exams.json`)
       .then(res => res.json())
       .then(data => setExams(data))
       .catch(err => console.error("Erro ao buscar provas:", err));

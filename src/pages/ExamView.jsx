@@ -8,7 +8,7 @@ export default function ExamView() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/data/exams.json')
+    fetch(`${import.meta.env.BASE_URL}data/exams.json`)
       .then(res => res.json())
       .then(data => {
         const found = data.find(e => e.id === id);
@@ -30,7 +30,7 @@ export default function ExamView() {
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '600', color: 'var(--outline)' }}>
           <ArrowLeft size={20} /> Voltar
         </Link>
-        <a href={exam.pdfUrl} download className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <a href={`${import.meta.env.BASE_URL}${exam.pdfUrl.replace(/^\\//, '')}`} download className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Download size={18} /> Baixar PDF
         </a>
       </div>
@@ -59,7 +59,7 @@ export default function ExamView() {
 
         <div style={{ backgroundColor: 'var(--surface-container)', borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--outline-variant)' }}>
           <iframe 
-            src={exam.pdfUrl} 
+            src={`${import.meta.env.BASE_URL}${exam.pdfUrl.replace(/^\\//, '')}`}
             width="100%" 
             height="100%" 
             style={{ border: 'none' }}
