@@ -1,0 +1,60 @@
+name: Enviar Nova Prova
+description: Contribua com uma prova antiga para ajudar outros estudantes da FCTE UNB.
+title: "[Nova Prova]: <Nome da Matéria>"
+labels: ["nova-prova"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por contribuir para a **WikiProvas FCTE UNB**!
+        Preencha os dados abaixo com atenção e anexe o PDF da prova.
+
+  - type: input
+    id: professor
+    attributes:
+      label: Professor(a)
+      description: Nome do professor que aplicou a prova.
+      placeholder: Ex: João Silva
+    validations:
+      required: true
+
+  - type: input
+    id: subject
+    attributes:
+      label: Matéria
+      description: Nome da disciplina.
+      placeholder: Ex: Cálculo 1
+    validations:
+      required: true
+
+  - type: input
+    id: semester
+    attributes:
+      label: Semestre
+      description: Em qual semestre a prova foi aplicada?
+      placeholder: Ex: 2023.1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Dificuldade
+      description: Como você avalia a dificuldade desta prova? (1 = Muito Fácil, 5 = Muito Difícil)
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+    validations:
+      required: true
+
+  - type: textarea
+    id: pdf_attachment
+    attributes:
+      label: Anexar PDF da Prova
+      description: Arraste e solte o arquivo PDF da prova aqui embaixo.
+      placeholder: Faça o upload do PDF aqui...
+    validations:
+      required: true
