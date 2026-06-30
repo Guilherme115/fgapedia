@@ -1,5 +1,7 @@
 # FGApédia 📚
 
+![Banner FGApédia](assets/banner.jpeg)
+
 A **FGApédia** é um repositório colaborativo ("Wikipedia de Provas") focado em ajudar os estudantes da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UNB). 
 
 Nosso objetivo é democratizar o acesso a materiais de estudo, permitindo que alunos compartilhem e acessem provas antigas, gabaritos e listas de exercícios de semestres anteriores, facilitando a preparação para as avaliações.
