@@ -1,4 +1,4 @@
-# Contribuindo para a WikiProvas FCTE UNB
+# Contribuindo para a FGApédia
 
 Primeiramente, muito obrigado por querer contribuir! Este repositório é feito de alunos para alunos, e a sua ajuda é fundamental.
 

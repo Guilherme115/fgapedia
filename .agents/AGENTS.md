@@ -1,4 +1,4 @@
-# Contexto do Projeto: WikiProvas FCTE UNB
+# Contexto do Projeto: FGApédia
 
 Este arquivo serve como base de conhecimento e diretriz de comportamento para qualquer agente de Inteligência Artificial que for atuar no desenvolvimento ou manutenção deste projeto.
 
